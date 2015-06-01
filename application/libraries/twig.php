@@ -62,22 +62,20 @@ Class CI_twig
 	 
 				## initialize a new Twig environment
 				$twig = new Twig_Environment($themeDir, array(
-														'cache'       => config_item('cache_directory_t'),
-														'auto_reload' => config_item('auto_reload_t')
-										));
+										'cache'       => config_item('cache_directory_t'),
+									        'auto_reload' => config_item('auto_reload_t')
+									     ));
 	 
 				## load template
 				$theme = $twig->loadTemplate($templateName);
 	 
 				## We can set template variables and  render template as shown by the codes below
-				echo $theme->render(array (
-											'content'=>$content,
-											));
+				echo $theme->render(array ('content'=>$content));
 											
 	 
 		} catch (Exception $e) {
-									die ('ERROR: ' . $e->getMessage());
-								}
+					die ('ERROR: ' . $e->getMessage());
+				       }
 		
 		}
 	
