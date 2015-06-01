@@ -32,32 +32,28 @@ require_once(APPPATH.'libraries/Twig/Autoloader.php');
 Class CI_twig
 {
 
-	public function  __construct()
-	{
-
-		date_default_timezone_set('America/Los_Angeles');
+    public function  __construct()
+    {
+    	date_default_timezone_set('America/Los_Angeles');
 		
-		 $CI = get_instance();
+        $CI = get_instance();
 
         $CI->load->config('twig');
         
-        if ( method_exists( $this, 'assignByRef') )
-        {
+        if ( method_exists( $this, 'assignByRef') ){
             $ci =& get_instance();
             $this->assignByRef("ci", $ci);
         }
 
-	}
+    }
 
 
-	public function loadView($content=array(),$templateName = null)
+    public function loadView($content=array(),$templateName = null)
 	{
-
-		
 		Twig_Autoloader::register();
 		
 		try {
-				## define template directory
+			    ## define template directory
 				$themeDir = new Twig_Loader_Filesystem(config_item('theme_path_t'));
 	 
 				## initialize a new Twig environment
